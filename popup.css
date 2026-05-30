@@ -1,0 +1,173 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 300px;
+  margin: 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  color: #333;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #004d40;
+}
+
+.credentials-card {
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid #d9e1e5;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #455a64;
+}
+
+.field-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 32px;
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 13px;
+  color: #263238;
+  background: #fff;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: #00bfa5;
+  box-shadow: 0 0 0 2px rgba(0, 191, 165, 0.12);
+}
+
+.save-btn {
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 6px;
+  background: #00bfa5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #00ab93;
+}
+
+.save-status {
+  min-height: 16px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #607d8b;
+}
+
+.popup-branding {
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #d9e1e5;
+  text-align: center;
+}
+
+.popup-branding a {
+  font-size: 12px;
+  font-weight: 700;
+  color: #00796b;
+  text-decoration: none;
+}
+
+.popup-branding a:hover {
+  text-decoration: underline;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+.label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #00bfa5;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #00bfa5;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ERP Overhaul</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>ERP Overhaul</h2>
+
+    <div class="credentials-card">
+      <div class="field-group">
+        <label for="usernameInput" class="field-label">Username</label>
+        <input type="text" id="usernameInput" class="field-input" placeholder="Mobile / Email / Staff Code" autocomplete="off">
+      </div>
+      <div class="field-group">
+        <label for="passwordInput" class="field-label">Password</label>
+        <input type="password" id="passwordInput" class="field-input" placeholder="Password" autocomplete="off">
+      </div>
+      <button id="saveCredentials" class="save-btn" type="button">Save Credentials</button>
+      <div id="saveStatus" class="save-status" aria-live="polite"></div>
+    </div>
+
+    <div class="toggle-container">
+      <span class="label">Auto-Login Enabled</span>
+      <label class="switch">
+        <input type="checkbox" id="toggleLogin">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="toggle-container">
+      <span class="label">Dark Mode Enabled</span>
+      <label class="switch">
+        <input type="checkbox" id="toggleDarkMode">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="toggle-container">
+      <span class="label">Declutter Dashboard</span>
+      <label class="switch">
+        <input type="checkbox" id="toggleDeclutter">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="popup-branding">
+      <a href="https://jayvarma.site" target="_blank" rel="noopener noreferrer">@jayyvarmaa</a>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "ERP Overhaul",
+  "version": "1.0",
+  "description": "Auto-login for PPSU ERP System as Student",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ERP Overhaul Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://erp.ppsu.ac.in/*"],
+      "css": ["dashboard.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -1,0 +1,2249 @@
+/* -------------------------------------------------------------------------- */
+/* ERP Overhaul - #191919 True Dark Mode                                      */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --erp-bg-main: #191919 !important;       /* True Dark Background */
+  --erp-bg-panel: #242424 !important;      /* Slightly lighter for cards */
+  --erp-bg-hover: #303030 !important;      /* Hover states */
+  --erp-border: #3d3d3d !important;        /* Borders */
+  
+  --erp-text-main: #FFFFFF !important;     /* Bright text */
+  --erp-text-muted: #CCCCCC !important;    /* Muted text */
+  --erp-text-dark: #A1A1A1 !important;     /* Darker muted text */
+  
+  --erp-accent: #4FA8FF !important;        /* Sky Blue Accent */
+  --erp-accent-hover: #7DBFFF !important;
+  
+  --erp-primary-gradient: linear-gradient(135deg, #1A73E8, #4D9BFF) !important;
+  --erp-shadow-sm: 0 1px 3px rgba(0,0,0,0.8) !important;
+  --erp-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.8), 0 2px 4px -1px rgba(0,0,0,0.6) !important;
+  
+  --erp-radius-lg: 12px !important;
+  --erp-radius-md: 8px !important;
+  --erp-radius-sm: 4px !important;
+
+  --erp-transition-fast: 160ms;
+  --erp-transition-base: 240ms;
+  --erp-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* =========================================================================
+   Global Dark Mode: All Selects, Dropdowns & Form Controls
+   ========================================================================= */
+html.erp-dark-mode select,
+html.erp-dark-mode select.form-control,
+html.erp-dark-mode .form-control[type="text"],
+html.erp-dark-mode input.form-control {
+    background-color: #242424 !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #3a3a3a !important;
+    color-scheme: dark !important;
+    box-shadow: none !important;
+}
+
+html.erp-dark-mode select option {
+    background-color: #242424 !important;
+    color: #e0e0e0 !important;
+}
+
+html.erp-dark-mode select:focus,
+html.erp-dark-mode .form-control:focus {
+    border-color: #007BFF !important;
+    outline: none !important;
+}
+
+/* Select2 plugin dark mode — all variants */
+html.erp-dark-mode .select2-container .select2-selection,
+html.erp-dark-mode .select2-container .select2-selection--single,
+html.erp-dark-mode .select2-container .select2-selection--multiple {
+    background-color: #242424 !important;
+    border-color: #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+html.erp-dark-mode .select2-selection__rendered {
+    color: #e0e0e0 !important;
+}
+
+html.erp-dark-mode .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent !important;
+}
+
+html.erp-dark-mode .select2-dropdown {
+    background-color: #242424 !important;
+    border-color: #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+html.erp-dark-mode .select2-results__option {
+    background-color: #242424 !important;
+    color: #e0e0e0 !important;
+}
+
+html.erp-dark-mode .select2-results__option--highlighted,
+html.erp-dark-mode .select2-results__option[aria-selected="true"] {
+    background-color: #007BFF !important;
+    color: #ffffff !important;
+}
+
+html.erp-dark-mode .select2-search__field {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+    border-color: #3a3a3a !important;
+}
+
+/* =========================================================================
+   Motion Polish
+   ========================================================================= */
+.erp-dark-mode .portlet,
+.erp-dark-mode .portlet-body,
+.erp-dark-mode .note,
+.erp-dark-mode .card,
+.erp-dark-mode .panel,
+.erp-dark-mode .dropdown-menu,
+.erp-dark-mode .modal-content,
+.erp-dark-mode .form-control,
+.erp-dark-mode .btn,
+html.erp-hide-clutter .erp-dashboard-shell .portlet,
+html.erp-hide-clutter .erp-dashboard-shell .note,
+html.erp-hide-clutter .erp-dashboard-shell .table,
+html.erp-hide-clutter .erp-dashboard-shell .form-control,
+html.erp-hide-clutter .erp-dashboard-shell .btn {
+    transition:
+        background-color var(--erp-transition-base) var(--erp-ease-standard),
+        border-color var(--erp-transition-base) var(--erp-ease-standard),
+        color var(--erp-transition-base) var(--erp-ease-standard) !important;
+}
+
+.erp-dark-mode a,
+.erp-dark-mode .dropdown-menu > li > a,
+html.erp-hide-clutter .erp-dashboard-shell a {
+    transition:
+        color var(--erp-transition-fast) var(--erp-ease-standard),
+        opacity var(--erp-transition-fast) var(--erp-ease-standard) !important;
+}
+
+.erp-dark-mode .table > tbody > tr,
+html.erp-hide-clutter .erp-dashboard-shell .table > tbody > tr {
+    transition: background-color var(--erp-transition-fast) var(--erp-ease-standard) !important;
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .erp-dark-mode .portlet,
+    .erp-dark-mode .portlet-body,
+    .erp-dark-mode .note,
+    .erp-dark-mode .card,
+    .erp-dark-mode .panel,
+    .erp-dark-mode .dropdown-menu,
+    .erp-dark-mode .modal-content,
+    .erp-dark-mode .form-control,
+    .erp-dark-mode .btn,
+    .erp-dark-mode a,
+    .erp-dark-mode .table > tbody > tr,
+    html.erp-hide-clutter .erp-dashboard-shell .portlet,
+    html.erp-hide-clutter .erp-dashboard-shell .note,
+    html.erp-hide-clutter .erp-dashboard-shell .table,
+    html.erp-hide-clutter .erp-dashboard-shell .form-control,
+    html.erp-hide-clutter .erp-dashboard-shell .btn,
+    html.erp-hide-clutter .erp-dashboard-shell a {
+        transition: none !important;
+    }
+}
+
+/* =========================================================================
+   Global Backgrounds & Resets
+   ========================================================================= */
+.erp-dark-mode body,
+.erp-dark-mode .page-container,
+.erp-dark-mode .page-content-wrapper,
+.erp-dark-mode .page-content,
+.erp-dark-mode .page-container-bg-solid,
+.erp-dark-mode .page-wrapper {
+    background-color: var(--erp-bg-main) !important;
+    background: var(--erp-bg-main) !important;
+    color: var(--erp-text-muted) !important;
+}
+
+/* Sub-headers & Breadcrumb areas (The white bar under the header) */
+.erp-dark-mode .page-bar,
+.erp-dark-mode .page-head,
+.erp-dark-mode .page-title,
+.erp-dark-mode .breadcrumbs {
+    background-color: var(--erp-bg-panel) !important;
+    background: var(--erp-bg-panel) !important;
+    border-bottom: 1px solid var(--erp-border) !important;
+    color: var(--erp-text-main) !important;
+}
+
+/* Generic typographic overrides */
+.erp-dark-mode h1, .erp-dark-mode h2, 
+.erp-dark-mode h3, .erp-dark-mode h4, 
+.erp-dark-mode h5, .erp-dark-mode h6,
+.erp-dark-mode .caption-subject,
+.erp-dark-mode .portlet-title .caption span {
+    color: var(--erp-text-main) !important;
+}
+
+.erp-dark-mode a {
+    color: var(--erp-accent) !important;
+}
+.erp-dark-mode a:hover {
+    color: var(--erp-accent-hover) !important;
+}
+
+/* Inline text color overrides for hardcoded black text */
+.erp-dark-mode [style*="color: black"],
+.erp-dark-mode [style*="color:#000"],
+.erp-dark-mode [style*="color: #000"],
+.erp-dark-mode [style*="color:#333"],
+.erp-dark-mode [style*="color: #333"] {
+    color: var(--erp-text-main) !important;
+}
+
+/* Metronic Text Color Utilities - Normalized for Dark Mode */
+.erp-dark-mode .font-dark { color: #FFFFFF !important; }
+.erp-dark-mode .font-red, .erp-dark-mode .font-red-intense, .erp-dark-mode .font-red-thunderbird { color: #ff6b6b !important; }
+.erp-dark-mode .font-green, .erp-dark-mode .font-green-jungle { color: #4ade80 !important; }
+.erp-dark-mode .font-blue, .erp-dark-mode .font-blue-madison { color: #38bdf8 !important; }
+.erp-dark-mode .font-yellow, .erp-dark-mode .font-yellow-gold { color: #facc15 !important; }
+
+
+/* =========================================================================
+   Headers & Navigations
+   ========================================================================= */
+.erp-dark-mode .page-header,
+.erp-dark-mode .page-header .page-header-top,
+.erp-dark-mode .page-header .page-header-menu {
+    background-color: var(--erp-bg-panel) !important;
+    background: var(--erp-bg-panel) !important;
+    border-bottom: 1px solid var(--erp-border) !important;
+}
+
+.erp-dark-mode .page-header-menu .hor-menu ul.navbar-nav > li > a {
+    color: var(--erp-text-muted) !important;
+}
+
+.erp-dark-mode .page-header-menu .hor-menu ul.navbar-nav > li:hover > a,
+.erp-dark-mode .page-header-menu .hor-menu ul.navbar-nav > li.active > a {
+    background-color: var(--erp-bg-hover) !important;
+    color: var(--erp-text-main) !important;
+}
+
+.erp-dark-mode .dropdown-menu,
+.erp-dark-mode .dropdown-menu > li > a,
+.erp-dark-mode .dropdown-menu .dropdown-item,
+.erp-dark-mode .dropdown-submenu > .dropdown-menu,
+.erp-dark-mode .page-header-menu .hor-menu .dropdown-menu {
+    background-color: var(--erp-bg-panel) !important;
+    border-color: var(--erp-border) !important;
+    color: var(--erp-text-muted) !important;
+}
+
+.erp-dark-mode .dropdown-menu > li > a:hover,
+.erp-dark-mode .dropdown-menu > li > a:focus,
+.erp-dark-mode .dropdown-menu .dropdown-item:hover,
+.erp-dark-mode .dropdown-menu .dropdown-item:focus,
+.erp-dark-mode .dropdown-menu > .active > a,
+.erp-dark-mode .dropdown-menu > .active > a:hover,
+.erp-dark-mode .dropdown-menu > .active > a:focus,
+.erp-dark-mode .page-header-menu .hor-menu .dropdown-menu li:hover > a,
+.erp-dark-mode .page-header-menu .hor-menu .dropdown-menu li.active > a,
+.erp-dark-mode .open > .dropdown-toggle.btn,
+.erp-dark-mode .open > .dropdown-toggle.btn:hover,
+.erp-dark-mode .open > .dropdown-toggle.btn:focus {
+    background: var(--erp-bg-hover) !important;
+    background-color: var(--erp-bg-hover) !important;
+    color: var(--erp-text-main) !important;
+    border-color: var(--erp-border) !important;
+}
+
+.erp-dark-mode .dropdown-menu > li.divider,
+.erp-dark-mode .dropdown-menu .divider {
+    background-color: var(--erp-border) !important;
+}
+
+.erp-dark-mode .dropdown-menu > li > a .badge,
+.erp-dark-mode .dropdown-menu .dropdown-item .badge {
+    background-color: #3b3b3b !important;
+    color: var(--erp-text-main) !important;
+}
+
+/* =========================================================================
+   Cards, Panels, Notes, and Dashboard Blocks
+   ========================================================================= */
+/* Target Metronic portlets, styling blocks, and inline-styled white backgrounds */
+.erp-dark-mode .portlet,
+.erp-dark-mode .portlet-body,
+.erp-dark-mode .portlet.light,
+.erp-dark-mode .portlet.box,
+.erp-dark-mode .dashboard-stat2,
+.erp-dark-mode .dashboard-stat,
+.erp-dark-mode .card,
+.erp-dark-mode .panel,
+.erp-dark-mode .well,
+.erp-dark-mode .wrapper,
+.erp-dark-mode .m-heading-1,
+.erp-dark-mode .note,
+.erp-dark-mode .bg-white,
+.erp-dark-mode [style*="background-color: white"],
+.erp-dark-mode [style*="background-color:#fff"],
+.erp-dark-mode [style*="background-color: #ffffff"],
+.erp-dark-mode [style*="background: white"],
+.erp-dark-mode [style*="background:#fff"],
+.erp-dark-mode [style*="background: #ffffff"] {
+    background-color: var(--erp-bg-panel) !important;
+    background: var(--erp-bg-panel) !important;
+    border-color: var(--erp-border) !important;
+    box-shadow: var(--erp-shadow-sm) !important;
+    color: var(--erp-text-muted) !important;
+}
+
+.erp-dark-mode .portlet-title {
+    border-bottom: 1px solid var(--erp-border) !important;
+}
+
+.erp-dark-mode .m-heading-1.border-red,
+.erp-dark-mode .note.note-info {
+    border-left: 4px solid var(--erp-border) !important;
+}
+
+/* Base text color overrides for card elements */
+.erp-dark-mode .portlet-body *,
+.erp-dark-mode .m-heading-1 *,
+.erp-dark-mode .note *,
+.erp-dark-mode .dashboard-stat2 *,
+.erp-dark-mode .dashboard-stat * {
+    /* Prevent aggressive text-shadows from stacking */
+    text-shadow: none !important;
+}
+
+.erp-dark-mode .portlet-body span,
+.erp-dark-mode .portlet-body p,
+.erp-dark-mode .portlet-body div,
+.erp-dark-mode .m-heading-1 *,
+.erp-dark-mode .note * {
+    color: var(--erp-text-main);
+}
+
+/* Preserve colors for standard badges (like 'Pending') */
+.erp-dark-mode .label, .erp-dark-mode .badge {
+    color: #fff !important; 
+}
+
+/* Lists (like Notifications) */
+.erp-dark-mode .list-group-item,
+.erp-dark-mode ul.feeds li,
+.erp-dark-mode .task-list .task-item,
+.erp-dark-mode .nav-tabs > li > a {
+    background-color: var(--erp-bg-hover) !important;
+    background: var(--erp-bg-hover) !important;
+    border-color: var(--erp-border) !important;
+    color: var(--erp-text-main) !important;
+}
+
+.erp-dark-mode .list-group-item:hover,
+.erp-dark-mode ul.feeds li:hover {
+    background-color: #3b3b3b !important;
+}
+
+/* Tabs */
+.erp-dark-mode .nav-tabs > li.active > a, 
+.erp-dark-mode .nav-tabs > li.active > a:focus, 
+.erp-dark-mode .nav-tabs > li.active > a:hover {
+    background-color: var(--erp-bg-panel) !important;
+    border-color: var(--erp-border) !important;
+    border-bottom-color: transparent !important;
+    color: var(--erp-accent) !important;
+}
+
+/* =========================================================================
+   Tables (Grids & Data)
+   ========================================================================= */
+.erp-dark-mode table,
+.erp-dark-mode .table {
+    border-color: var(--erp-border) !important;
+    background-color: #262626 !important;
+    border-collapse: collapse !important;
+}
+.erp-dark-mode .table td,
+.erp-dark-mode .table th {
+    border: 1px solid #383838 !important;
+    color: var(--erp-text-main) !important;
+    background-color: #262626 !important;
+}
+.erp-dark-mode .table > thead > tr > th {
+    background-color: #1f1f1f !important;
+}
+.erp-dark-mode .table-striped > tbody > tr > td,
+.erp-dark-mode .table-striped > tbody > tr > th,
+.erp-dark-mode .table-bordered > tbody > tr > td,
+.erp-dark-mode .table-bordered > tbody > tr > th,
+.erp-dark-mode .table > tbody > tr > td {
+    background-color: #262626 !important;
+    background: #262626 !important;
+}
+
+.erp-dark-mode .table-striped > tbody > tr:nth-of-type(odd) > td,
+.erp-dark-mode .table-striped > tbody > tr:nth-of-type(odd) > th,
+.erp-dark-mode .table-striped > tbody > tr:nth-of-type(even) > td,
+.erp-dark-mode .table-striped > tbody > tr:nth-of-type(even) > th {
+    background-color: #262626 !important;
+    background: #262626 !important;
+}
+
+/* Hyper-specific hover selector to squash Metronic's table-striped/advanced white hovers */
+.erp-dark-mode .table-hover > tbody > tr:hover > td,
+.erp-dark-mode .table-hover > tbody > tr:hover > th,
+.erp-dark-mode table > tbody > tr:hover > td,
+.erp-dark-mode table > tbody > tr:hover > th,
+.erp-dark-mode .table-striped > tbody > tr:hover > td,
+.erp-dark-mode .table-striped > tbody > tr:hover > th,
+.erp-dark-mode .table-advanced > tbody > tr:hover > td,
+.erp-dark-mode .table-advanced > tbody > tr:hover > th {
+    background-color: #262626 !important;
+    background: #262626 !important;
+}
+
+/* =========================================================================
+   Declutter Mode
+   ========================================================================= */
+.erp-hide-clutter #ctl00_cphPageContent_divTermRegistrationProcess,
+.erp-hide-clutter #ctl00_cphPageContent_divPlacement,
+.erp-hide-clutter #ctl00_cphPageContent_divUsefulWebsite,
+.erp-hide-clutter .portlet:has(.mt-widget-3),
+.erp-hide-clutter .mt-widget-3 {
+    display: none !important;
+}
+
+/* =========================================================================
+   Form Inputs & Buttons
+   ========================================================================= */
+.erp-dark-mode input[type="text"],
+.erp-dark-mode input[type="password"],
+.erp-dark-mode input[type="email"],
+.erp-dark-mode textarea,
+.erp-dark-mode select,
+.erp-dark-mode .form-control {
+    background-color: #121212 !important;
+    border: 1px solid var(--erp-border) !important;
+    color: var(--erp-text-main) !important;
+}
+
+.erp-dark-mode .form-control:focus {
+    border-color: var(--erp-accent) !important;
+}
+
+.erp-dark-mode .btn {
+    background-color: var(--erp-bg-hover) !important;
+    border-color: var(--erp-border) !important;
+    color: var(--erp-text-main) !important;
+}
+.erp-dark-mode .btn:hover {
+    background-color: #454545 !important;
+}
+
+/* Action Buttons */
+.erp-dark-mode .btn.green,
+.erp-dark-mode .btn.blue,
+.erp-dark-mode .btn-primary {
+    background: var(--erp-primary-gradient) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+/* Modals */
+.erp-dark-mode .modal-content {
+    background-color: var(--erp-bg-panel) !important;
+    border-color: var(--erp-border) !important;
+}
+.erp-dark-mode .modal-header {
+    border-bottom: 1px solid var(--erp-border) !important;
+}
+.erp-dark-mode .modal-footer {
+    border-top: 1px solid var(--erp-border) !important;
+}
+
+/* =========================================================================
+   New Dashboard Layout Architecture (Grid/Flex)
+   ========================================================================= */
+
+.erp-dashboard-shell {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.erp-flex-header-row {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 54px;
+    align-items: stretch;
+}
+
+.erp-col-profile {
+    flex: 0 0 65% !important;
+    max-width: 65% !important;
+}
+
+.erp-col-note {
+    flex: 0 0 calc(35% - 20px) !important;
+    max-width: calc(35% - 20px) !important;
+}
+
+.erp-col-profile .portlet,
+.erp-col-note .portlet {
+    height: 100%;
+    border: 1px solid var(--erp-border) !important;
+    border-radius: var(--erp-radius-md);
+}
+
+.erp-col-note .note {
+    min-height: 100%;
+    margin: 0 !important;
+}
+
+.erp-profile-grid {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 18px;
+    align-items: center;
+    min-height: 154px;
+}
+
+.erp-profile-full {
+    display: block !important;
+    min-height: auto;
+}
+
+.erp-col-profile .portlet-body.erp-profile-full {
+    padding: 12px 14px !important;
+}
+
+.erp-col-profile .profileInfoBox,
+.erp-col-profile .profileInfoBox table,
+.erp-col-profile .table-responsive {
+    width: 100% !important;
+}
+
+.erp-col-profile .imgStudentPhoto {
+    width: 84px !important;
+    height: 84px !important;
+    object-fit: cover;
+}
+
+.erp-profile-split {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 16px;
+    align-items: stretch;
+    min-height: 240px;
+}
+
+.erp-profile-left-pane {
+    border: 1px solid var(--erp-border);
+    border-radius: var(--erp-radius-sm);
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    min-height: 300px;
+}
+
+.erp-profile-left-pane .erp-profile-avatar {
+    justify-content: center;
+}
+
+.erp-profile-left-pane .imgStudentPhoto {
+    width: 132px !important;
+    height: 132px !important;
+}
+
+.erp-profile-left-name {
+    color: var(--erp-text-main);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 22px;
+    letter-spacing: 0.2px;
+    width: 100%;
+}
+
+.erp-profile-left-status {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.erp-profile-left-status .label {
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+}
+
+.erp-profile-right-pane .profileInfoBox,
+.erp-profile-right-pane .table-responsive,
+.erp-profile-right-pane .profileInfoBox table {
+    width: 100% !important;
+}
+
+.erp-profile-right-pane .profileInfoBox table {
+    margin-bottom: 0 !important;
+}
+
+.erp-profile-right-pane .profileInfoBox th,
+.erp-profile-right-pane .profileInfoBox td {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    vertical-align: middle !important;
+}
+
+.erp-profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.erp-profile-avatar img {
+    border-radius: 50% !important;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border: 2px solid var(--erp-border);
+}
+
+.erp-profile-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+}
+
+.erp-summary-line {
+    max-width: 92%;
+    min-height: 12px;
+    border-radius: 999px;
+    color: var(--erp-text-main) !important;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.erp-summary-line:nth-child(1) {
+    max-width: 64%;
+}
+.erp-summary-line:nth-child(2) {
+    max-width: 52%;
+}
+.erp-summary-line:nth-child(3) {
+    max-width: 74%;
+}
+.erp-summary-line:nth-child(4) {
+    max-width: 58%;
+}
+
+.erp-main-content {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Pending Assignments Workspace */
+.erp-assignments-workspace {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 48px;
+}
+.erp-assignments-workspace .portlet {
+    background-color: var(--erp-bg-panel) !important;
+    border: 1px solid var(--erp-border) !important;
+    border-radius: var(--erp-radius-md);
+    box-shadow: var(--erp-shadow-sm) !important;
+}
+
+.erp-assignments-workspace .portlet-body {
+    padding-bottom: 16px !important;
+}
+
+.erp-assignments-workspace .portlet-body > .table-responsive {
+    height: 520px !important;
+    max-height: 520px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.erp-assignments-workspace .table {
+    border-collapse: collapse !important;
+}
+
+.erp-assignments-workspace .table > thead > tr > th {
+    background-color: #1f1f1f !important;
+    border: 1px solid #383838 !important;
+    color: var(--erp-text-main) !important;
+}
+
+.erp-assignments-workspace .table > tbody > tr > td,
+.erp-assignments-workspace .table > tbody > tr > th,
+.erp-assignments-workspace .table-striped > tbody > tr > td,
+.erp-assignments-workspace .table-striped > tbody > tr > th,
+.erp-assignments-workspace .table-striped > tbody > tr:nth-of-type(odd) > td,
+.erp-assignments-workspace .table-striped > tbody > tr:nth-of-type(even) > td {
+    background-color: #262626 !important;
+    border: 1px solid #383838 !important;
+    color: var(--erp-text-main) !important;
+}
+
+.erp-assignments-workspace .table-hover > tbody > tr:hover > td,
+.erp-assignments-workspace .table-hover > tbody > tr:hover > th,
+.erp-assignments-workspace .table-striped > tbody > tr:hover > td,
+.erp-assignments-workspace .table-striped > tbody > tr:hover > th {
+    background-color: #262626 !important;
+}
+
+.erp-footer-alerts {
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Bottom Notification Bar */
+.erp-notification-footer {
+    margin-top: 0;
+    border: 1px solid var(--erp-border);
+    border-radius: var(--erp-radius-sm);
+    padding: 12px 14px;
+    text-align: center;
+    background-color: var(--erp-bg-panel) !important;
+    width: 100%;
+}
+
+/* =========================================================================
+   Custom Dashboard - Light Mode Fallback
+   ========================================================================= */
+html:not(.erp-dark-mode) .erp-col-profile .portlet,
+html:not(.erp-dark-mode) .erp-col-note .portlet,
+html:not(.erp-dark-mode) .erp-assignments-workspace .portlet,
+html:not(.erp-dark-mode) .erp-notification-footer {
+    background: #ffffff !important;
+    border: 1px solid #e1e5ec !important;
+    box-shadow: none !important;
+    color: inherit !important;
+}
+
+html:not(.erp-dark-mode) .erp-profile-left-pane {
+    border: 1px solid #e1e5ec !important;
+    background: #ffffff !important;
+}
+
+html:not(.erp-dark-mode) .erp-profile-left-name {
+    color: inherit !important;
+}
+
+html:not(.erp-dark-mode) .erp-assignments-workspace .table > thead > tr > th {
+    background: #f5f5f5 !important;
+    border: 1px solid #e1e5ec !important;
+    color: inherit !important;
+}
+
+html:not(.erp-dark-mode) .erp-assignments-workspace .table > tbody > tr > td,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table > tbody > tr > th,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-striped > tbody > tr > td,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-striped > tbody > tr > th,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-striped > tbody > tr:nth-of-type(odd) > td,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-striped > tbody > tr:nth-of-type(even) > td {
+    background: #ffffff !important;
+    border: 1px solid #e1e5ec !important;
+    color: inherit !important;
+}
+
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-hover > tbody > tr:hover > td,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-hover > tbody > tr:hover > th,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-striped > tbody > tr:hover > td,
+html:not(.erp-dark-mode) .erp-assignments-workspace .table-striped > tbody > tr:hover > th {
+    background: #fafafa !important;
+}
+
+/* Responsive fallback */
+@media (max-width: 991px) {
+    .erp-col-profile, .erp-col-note {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .erp-col-profile .imgStudentPhoto {
+        width: 72px !important;
+        height: 72px !important;
+    }
+
+    .erp-profile-left-pane .imgStudentPhoto {
+        width: 102px !important;
+        height: 102px !important;
+    }
+
+    .erp-profile-left-name {
+        font-size: 18px;
+    }
+
+    .erp-profile-split {
+        grid-template-columns: 1fr;
+    }
+
+    .erp-assignments-workspace .portlet-body > .table-responsive {
+        height: 320px !important;
+        max-height: 320px !important;
+    }
+}
+
+/* =========================================================================
+   Login Page Cleanup (No University Carousel)
+   ========================================================================= */
+html.erp-hide-clutter body.login .backstretch,
+html.erp-hide-clutter body.login .login-bg,
+html.erp-hide-clutter body.login .col-md-8.col-sm-8.bs-reset.mt-login-5-bsfix {
+    display: none !important;
+}
+
+html.erp-hide-clutter body.login .login-form {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 14px;
+    background: #191919;
+}
+
+html.erp-hide-clutter body.login {
+    height: 100vh !important;
+    overflow: hidden !important;
+}
+
+html.erp-hide-clutter body.login .user-login-5 {
+    height: 100vh;
+    overflow: hidden;
+}
+
+html.erp-hide-clutter body.login .login-form .row.bs-reset {
+    width: 100%;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html.erp-hide-clutter body.login .login-form .login-container {
+    float: none !important;
+    width: 100% !important;
+    max-width: 520px;
+    margin: 0 auto !important;
+}
+
+html.erp-hide-clutter body.login .user-login-5 .login-container > .login-content {
+    margin-top: 0 !important;
+    background: #242424;
+    border: 1px solid #3d3d3d;
+    border-radius: 12px;
+    padding: 22px 24px 20px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+}
+
+html.erp-hide-clutter body.login #imgFooterLogo {
+    max-width: 210px !important;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+html.erp-hide-clutter body.login .login-content label,
+html.erp-hide-clutter body.login .login-content small,
+html.erp-hide-clutter body.login .login-content .font-grey-cascasde,
+html.erp-hide-clutter body.login .login-content a {
+    color: #e5e7eb !important;
+}
+
+html.erp-hide-clutter body.login .login-content .form-control {
+    background: #121212 !important;
+    border: 1px solid #3d3d3d !important;
+    color: #ffffff !important;
+}
+
+html.erp-hide-clutter body.login .login-content .form-control::placeholder {
+    color: #9aa0a6 !important;
+}
+
+/* =========================================================================
+   LMS Page Revamp Styles
+   ========================================================================= */
+
+.erp-lms-shell {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure all direct children shrink inside the flex container */
+.erp-lms-shell > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Dark mode all dropdowns & selects inside LMS */
+.erp-lms-shell select,
+.erp-lms-shell .form-control,
+.erp-lms-shell input[type="text"],
+.erp-lms-shell input[type="number"] {
+    background-color: #242424 !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #3a3a3a !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.erp-lms-shell select:focus,
+.erp-lms-shell .form-control:focus {
+    border-color: #007BFF !important;
+}
+
+.erp-lms-shell select option {
+    background-color: #242424;
+    color: #e0e0e0;
+}
+
+.erp-lms-shell label {
+    color: #aaa !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+.erp-lms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+
+.erp-lms-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-family: inherit;
+}
+
+.erp-lms-tag {
+    font-size: 10px;
+    font-weight: 400;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* ── Section Header ("Pending Submission") ── */
+.erp-lms-table-header {
+    background-color: #262626;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 4px solid #ffffff;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.erp-lms-icon {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.erp-lms-subtitle {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* ── Table Structure ── */
+.erp-lms-table-container {
+    overflow-x: auto;
+    margin-bottom: 32px;
+}
+
+.erp-lms-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #3a3a3a;
+    table-layout: fixed;
+    background-color: #111111;
+}
+
+/* Column header row */
+.erp-lms-table .erp-table-header th {
+    background-color: #262626;
+    border-bottom: 2px solid #3a3a3a;
+    padding: 10px 14px !important;
+    font-size: 10px !important;
+    font-weight: 700;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #3a3a3a;
+}
+
+.erp-lms-table .erp-table-header th:last-child {
+    border-right: none;
+}
+
+/* Subject group header rows */
+.erp-lms-table .erp-lms-group-row > td {
+    background-color: #1e1e1e;
+    padding: 10px 14px;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #333;
+}
+
+.erp-lms-group-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.erp-lms-blue-stripe {
+    width: 4px;
+    height: 16px;
+    background-color: #007BFF;
+    border-radius: 1px;
+}
+
+.erp-lms-group-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* Data rows */
+.erp-lms-table .erp-lms-item-row {
+    background-color: #141414;
+    transition: background-color 0.15s ease;
+}
+
+.erp-lms-table .erp-lms-item-row:hover {
+    background-color: #1c1c1c !important;
+}
+
+.erp-lms-table .erp-lms-item-row > td {
+    padding: 12px 14px;
+    font-size: 11px;
+    border-right: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+    color: #999;
+}
+
+.erp-lms-table .erp-lms-item-row > td:last-child {
+    border-right: none;
+}
+
+.erp-lms-col-sr { width: 48px; color: #666 !important; }
+.erp-lms-col-assign a { color: #4da3ff; text-decoration: none; }
+.erp-lms-col-assign a:hover { text-decoration: underline; }
+.erp-lms-col-assign a.GNHyperlink-Disabled { color: #666 !important; }
+
+.erp-lms-col-deadline { color: #e0e0e0 !important; font-weight: 500; }
+.erp-lms-col-deadline small { display: block; font-size: 9px; margin-top: 4px; color: #888; }
+.erp-lms-col-deadline small.bold { font-weight: 600; color: #aaa; }
+
+.erp-late-tag {
+    background-color: #e53935;
+    color: #ffffff !important;
+    font-size: 8px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* Submit / Locked buttons */
+.btn-submit,
+.erp-lms-shell .btn-submit,
+.erp-lms-shell a.btn-submit,
+.erp-lms-shell .erp-lms-table a.btn-submit,
+.erp-lms-shell .btn.green,
+.erp-lms-shell a.btn.green {
+    background-color: #007BFF !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    padding: 5px 14px !important;
+    border-radius: 12px !important;
+    transition: background-color 0.2s ease;
+    text-decoration: none !important;
+    display: inline-block;
+    border: none !important;
+    box-shadow: none !important;
+    line-height: 1.4 !important;
+}
+
+.btn-submit:hover,
+.erp-lms-shell .btn-submit:hover,
+.erp-lms-shell a.btn.green:hover {
+    background-color: #0056b3 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.btn-locked {
+    background-color: #333 !important;
+    color: #777 !important;
+    border: none !important;
+    padding: 5px 14px !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+    cursor: not-allowed !important;
+    display: inline-block;
+}
+
+/* =========================================================================
+   Subject Cards Grid
+   ========================================================================= */
+
+.erp-lms-subject-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .erp-lms-subject-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+    .erp-lms-subject-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.subject-card {
+    background-color: #242424;
+    border: 1px solid #3a3a3a;
+    border-left: 3px solid #007BFF;
+    padding: 16px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.2s, border-color 0.2s;
+    text-decoration: none !important;
+}
+
+.subject-card:hover {
+    background-color: #2e2e2e;
+    border-color: #555;
+}
+
+.semester-tag {
+    background-color: #e53935;
+    color: white;
+    font-size: 8px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.subject-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    line-height: 1.35;
+    margin: 4px 0;
+}
+
+.subject-contents {
+    font-size: 10px;
+    color: #8bb4e5;
+    margin: 0;
+}
+
+.subject-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.subject-icon {
+    color: #555;
+    font-size: 16px;
+}
+
+/* =========================================================================
+   Portlet Chrome Reset inside LMS Shell — DASHBOARD ONLY
+   On the dashboard, portlets are transparent wrappers. On subject pages,
+   portlets are visible dark cards.
+   ========================================================================= */
+
+/* Dashboard: strip portlet chrome (dashboard has .mt-element-overlay) */
+.erp-lms-shell:has(.mt-element-overlay) .portlet,
+.erp-lms-shell:has(.mt-element-overlay) .portlet.light {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.erp-lms-shell:has(.mt-element-overlay) .portlet-body {
+    padding: 0 !important;
+}
+
+/* Subject pages: portlets are dark cards */
+.erp-lms-shell:not(:has(.mt-element-overlay)) .portlet,
+.erp-lms-shell:not(:has(.mt-element-overlay)) .portlet.light {
+    background-color: #242424 !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+    margin-bottom: 16px !important;
+}
+
+.erp-lms-shell:not(:has(.mt-element-overlay)) .portlet-body {
+    padding: 16px !important;
+    background-color: transparent !important;
+}
+
+/* ── Contain ALL tables & elements inside the shell ── */
+.erp-lms-shell,
+.erp-lms-shell .portlet,
+.erp-lms-shell .portlet-body,
+.erp-lms-shell .row,
+.erp-lms-shell [class*="col-"] {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Native ERP table containment */
+.erp-lms-shell .table-responsive,
+.erp-lms-shell .table-scrollable {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.erp-lms-shell .table-responsive > table,
+.erp-lms-shell table.table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+}
+
+/* Dark mode the native ERP table (when JS restructuring doesn't apply) */
+.erp-lms-shell table.table {
+    background-color: #111111 !important;
+    border-color: #3a3a3a !important;
+    color: #ccc !important;
+}
+
+.erp-lms-shell table.table th,
+.erp-lms-shell table.table .TRDark th,
+.erp-lms-shell table.table .TRDark td {
+    background-color: #262626 !important;
+    color: #aaa !important;
+    border-color: #3a3a3a !important;
+    font-size: 11px !important;
+}
+
+.erp-lms-shell table.table td {
+    background-color: #141414 !important;
+    color: #ccc !important;
+    border-color: #2a2a2a !important;
+    font-size: 11px !important;
+}
+
+.erp-lms-shell table.table td a {
+    color: #4da3ff !important;
+}
+
+.erp-lms-shell table.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: #181818 !important;
+}
+
+.erp-lms-shell table.table-hover > tbody > tr:hover > td {
+    background-color: #1e1e1e !important;
+}
+
+.erp-lms-shell .clearfix {
+    display: none;
+}
+
+.erp-lms-shell .mt-element-overlay .row {
+    margin: 0;
+}
+
+/* =========================================================================
+   CSS-ONLY Fallback: Restyle Native ERP Subject Cards (AJAX-loaded)
+   ========================================================================= */
+
+/* Grid layout for the native overlay container */
+.erp-lms-shell .mt-element-overlay {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+}
+
+@media (min-width: 640px) {
+    .erp-lms-shell .mt-element-overlay {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .erp-lms-shell .mt-element-overlay {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Each card link — padding only on the <a>, not on mt-overlay-1 */
+.erp-lms-shell .mt-element-overlay a[id*="hlContentList"] {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    background-color: #242424 !important;
+    border: 1px solid #3a3a3a !important;
+    border-left: 3px solid #007BFF !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    min-height: 100px !important;
+    max-height: 140px !important;
+    padding: 16px !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    float: none !important;
+}
+
+/* Inner overlay: no padding, no border, transparent */
+.erp-lms-shell .mt-element-overlay .mt-overlay-1 {
+    display: flex !important;
+    flex-direction: column !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+.erp-lms-shell .mt-element-overlay a[id*="hlContentList"]:hover {
+    background-color: #2e2e2e !important;
+    border-color: #555 !important;
+}
+
+/* AGGRESSIVELY hide EVERYTHING except .mt-card-name inside the overlay */
+.erp-lms-shell .mt-overlay-1 .img-style,
+.erp-lms-shell .mt-overlay-1 img,
+.erp-lms-shell .mt-overlay-1 .mt-info,
+.erp-lms-shell .mt-overlay-1 > div:not(.mt-card-name) {
+    display: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+/* Subject name — always visible */
+.erp-lms-shell .mt-overlay-1 .mt-card-name {
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.erp-lms-shell .mt-overlay-1 .mt-card-name h2,
+.erp-lms-shell .mt-overlay-1 .mt-card-name h3,
+.erp-lms-shell .mt-overlay-1 .mt-card-name span,
+.erp-lms-shell .mt-overlay-1 .mt-card-name a {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #e0e0e0 !important;
+    text-transform: uppercase !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* Semester label badge — keep visible */
+.erp-lms-shell .mt-overlay-1 .label {
+    background-color: #e53935 !important;
+    color: white !important;
+    font-size: 8px !important;
+    padding: 2px 6px !important;
+    border-radius: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+    margin-bottom: 8px !important;
+    position: static !important;
+}
+
+/* Let grid handle layout */
+.erp-lms-shell .mt-element-overlay > .row,
+.erp-lms-shell .mt-element-overlay > .row > [class*="col-"] {
+    display: contents !important;
+}
+
+.erp-lms-shell .mt-element-overlay .clearfix {
+    display: none !important;
+}
+
+/* =========================================================================
+   LMS Subject Detail Page — Tabs, Tables, Rating, Actions
+   ========================================================================= */
+
+/* ── Tab Bar (nav-tabs & nav-pills) ── */
+.erp-lms-shell .tabbable-line {
+    border: none !important;
+    background: transparent !important;
+}
+
+.erp-lms-shell .nav-tabs,
+.erp-lms-shell .nav-pills {
+    background-color: #1e1e1e !important;
+    border-bottom: 2px solid #333 !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 4px 8px 0 !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+}
+
+.erp-lms-shell .nav-tabs > li,
+.erp-lms-shell .nav-pills > li {
+    margin-bottom: 0 !important;
+}
+
+.erp-lms-shell .nav-tabs > li > a,
+.erp-lms-shell .nav-pills > li > a {
+    background-color: transparent !important;
+    color: #999 !important;
+    border: none !important;
+    border-bottom: 3px solid transparent !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+    border-radius: 6px 6px 0 0 !important;
+    transition: all 200ms ease !important;
+    margin: 0 !important;
+}
+
+.erp-lms-shell .nav-tabs > li > a:hover,
+.erp-lms-shell .nav-pills > li > a:hover {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+    border-bottom-color: #555 !important;
+}
+
+.erp-lms-shell .nav-tabs > li.active > a,
+.erp-lms-shell .nav-tabs > li.active > a:hover,
+.erp-lms-shell .nav-tabs > li.active > a:focus,
+.erp-lms-shell .nav-pills > li.active > a,
+.erp-lms-shell .nav-pills > li.active > a:hover,
+.erp-lms-shell .nav-pills > li.active > a:focus {
+    background-color: #242424 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-bottom: 3px solid #4FA8FF !important;
+}
+
+/* Tab icon color overrides */
+.erp-lms-shell .nav-tabs > li > a .fa,
+.erp-lms-shell .nav-pills > li > a .fa {
+    color: inherit !important;
+    margin-right: 6px !important;
+}
+
+/* Tab count badges — pill style */
+.erp-lms-shell .nav-tabs .badge,
+.erp-lms-shell .nav-pills .badge {
+    background-color: #2d5fa6 !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    padding: 2px 7px !important;
+    border-radius: 10px !important;
+    margin-left: 6px !important;
+    font-weight: 700 !important;
+    vertical-align: middle !important;
+}
+
+.erp-lms-shell .nav-tabs > li.active .badge,
+.erp-lms-shell .nav-pills > li.active .badge {
+    background-color: #4FA8FF !important;
+}
+
+/* ── Tab Content Panes ── */
+.erp-lms-shell .tab-content {
+    background-color: #242424 !important;
+    border: 1px solid #333 !important;
+    border-top: none !important;
+    border-radius: 0 0 8px 8px !important;
+    padding: 16px !important;
+}
+
+.erp-lms-shell .tab-pane {
+    background: transparent !important;
+}
+
+/* ── Detail Page Tables (inside tabs) ── */
+.erp-lms-shell .tab-content .table-responsive {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    border-radius: 6px !important;
+    border: 1px solid #333 !important;
+}
+
+.erp-lms-shell .tab-content table.table {
+    background-color: #1e1e1e !important;
+    color: #d0d0d0 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+    border: none !important;
+}
+
+.erp-lms-shell .tab-content table.table th,
+.erp-lms-shell .tab-content table.table .TRDark th,
+.erp-lms-shell .tab-content table.table .TRDark td {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+    padding: 10px 12px !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+}
+
+.erp-lms-shell .tab-content table.table td {
+    background-color: #242424 !important;
+    color: #ccc !important;
+    border: 1px solid #333 !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    vertical-align: middle !important;
+}
+
+.erp-lms-shell .tab-content table.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: #1e1e1e !important;
+}
+
+.erp-lms-shell .tab-content table.table-hover > tbody > tr:hover > td {
+    background-color: #303030 !important;
+}
+
+/* Content title links */
+.erp-lms-shell .tab-content table.table td a {
+    color: #4FA8FF !important;
+}
+.erp-lms-shell .tab-content table.table td a:hover {
+    color: #7DBFFF !important;
+    text-decoration: underline !important;
+}
+
+/* ── Star Rating Icons ── */
+.erp-lms-shell .fa-star,
+.erp-lms-shell .fa-star-o,
+.erp-lms-shell .fa-star-half-o {
+    color: #facc15 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: transform 150ms ease !important;
+}
+.erp-lms-shell .fa-star:hover,
+.erp-lms-shell .fa-star-o:hover {
+    transform: scale(1.2) !important;
+}
+.erp-lms-shell a.MyLink {
+    color: #facc15 !important;
+    text-decoration: none !important;
+}
+
+/* ── Download Buttons (blue btn-xs) — global + tab-content ── */
+.erp-lms-shell a.btn.blue.btn-xs,
+.erp-lms-shell .btn.blue,
+.erp-lms-shell .tab-content a.btn.blue.btn-xs,
+.erp-lms-shell .tab-content .btn.blue {
+    background-color: #1A73E8 !important;
+    border-color: #1A73E8 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+    transition: background-color 200ms ease !important;
+}
+.erp-lms-shell a.btn.blue.btn-xs:hover,
+.erp-lms-shell .btn.blue:hover,
+.erp-lms-shell .tab-content a.btn.blue.btn-xs:hover,
+.erp-lms-shell .tab-content .btn.blue:hover {
+    background-color: #4D9BFF !important;
+}
+
+/* ── Feedback Buttons (red btn) — global + tab-content ── */
+.erp-lms-shell .btn.red.btn-xs,
+.erp-lms-shell .fa-comments-o.btn.red,
+.erp-lms-shell .tab-content .btn.red.btn-xs,
+.erp-lms-shell .tab-content .fa-comments-o.btn.red {
+    background-color: #c62828 !important;
+    border-color: #c62828 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+}
+.erp-lms-shell .btn.red.btn-xs:hover,
+.erp-lms-shell .fa-comments-o.btn.red:hover,
+.erp-lms-shell .tab-content .btn.red.btn-xs:hover {
+    background-color: #e53935 !important;
+}
+
+/* ── "Pending to view" status text (global) ── */
+.erp-lms-shell td span[id*="lblViewDateTime"] {
+    font-weight: 600 !important;
+}
+
+/* ── Rating small text (the "0 / 5" below stars) ── */
+.erp-lms-shell td small.bold {
+    color: #999 !important;
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 11px !important;
+    display: inline !important;
+    margin-top: 0 !important;
+}
+
+/* ── Unit / Heading labels in detail cells (global) ── */
+.erp-lms-shell td span.bold,
+.erp-lms-shell td sapn span.bold {
+    color: #888 !important;
+    font-size: 11px !important;
+}
+
+/* ── Timestamp small text inside table cells ── */
+.erp-lms-shell td small {
+    color: #888 !important;
+}
+
+/* ── Nested portlet-body reset (ContentTypeWiseContentDetails) ── */
+.erp-lms-shell .portlet-body .portlet-body {
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+/* ── Back to Dashboard link ── */
+.erp-lms-shell a[id*="hlBackToDashboard"] {
+    color: #4FA8FF !important;
+    font-weight: 600 !important;
+}
+
+/* ── Subject detail nav-pills (Subject Details | Content tabs) ── */
+.erp-lms-shell .portlet .nav-pills {
+    background-color: #1e1e1e !important;
+    border-bottom: 2px solid #333 !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+/* ── Portlet wrapper — ONLY inside detail/tabbed pages (not dashboard) ── */
+.erp-lms-shell .tabbable-line .portlet,
+.erp-lms-shell .portlet:has(.tabbable-line),
+.erp-lms-shell .portlet:has(.nav-tabs),
+.erp-lms-shell .portlet:has(.nav-pills) {
+    background-color: #242424 !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+}
+
+.erp-lms-shell .tabbable-line .portlet-body {
+    background-color: transparent !important;
+    padding: 16px !important;
+}
+
+/* ── Portlet title (caption) — globally scoped, harmless on dashboard since title is hidden ── */
+.erp-lms-shell .portlet-title {
+    background-color: transparent !important;
+    border-bottom: 1px solid #333 !important;
+    padding: 12px 16px !important;
+}
+
+.erp-lms-shell .portlet-title .caption,
+.erp-lms-shell .portlet-title .caption-subject {
+    color: #ffffff !important;
+}
+
+.erp-lms-shell .portlet-title .caption .fa {
+    color: #4FA8FF !important;
+}
+
+/* =========================================================================
+   LMS Shell — Standalone Tables (Pending Submission, outside tab-content)
+   ========================================================================= */
+
+/* Table wrapper: respect bounds */
+.erp-lms-shell .table-responsive {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    border-radius: 6px !important;
+    border: 1px solid #333 !important;
+}
+
+/* Table base */
+.erp-lms-shell table.table {
+    background-color: #1e1e1e !important;
+    color: #d0d0d0 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+    border: none !important;
+}
+
+/* Table header row — TRDark class */
+.erp-lms-shell table.table .TRDark th,
+.erp-lms-shell table.table .TRDark td,
+.erp-lms-shell table.table > thead > tr > th,
+.erp-lms-shell table.table th {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+    padding: 10px 12px !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+}
+
+/* Table body cells */
+.erp-lms-shell table.table td {
+    background-color: #242424 !important;
+    color: #ccc !important;
+    border: 1px solid #333 !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    vertical-align: middle !important;
+}
+
+/* Striped rows */
+.erp-lms-shell table.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: #1e1e1e !important;
+}
+
+/* Hover rows */
+.erp-lms-shell table.table-hover > tbody > tr:hover > td {
+    background-color: #303030 !important;
+}
+
+/* Content links inside table */
+.erp-lms-shell table.table td a {
+    color: #4FA8FF !important;
+}
+.erp-lms-shell table.table td a:hover {
+    color: #7DBFFF !important;
+    text-decoration: underline !important;
+}
+
+/* ── Submit / Action Buttons ── */
+/* Green "Click here to Submit" → styled as blue accent button */
+.erp-lms-shell .btn.green,
+.erp-lms-shell .btn.green.btn-circle,
+.erp-lms-shell a.btn.green.btn-circle.btn-xs {
+    background-color: #1A73E8 !important;
+    background: linear-gradient(135deg, #1A73E8, #4D9BFF) !important;
+    border-color: #1A73E8 !important;
+    color: #ffffff !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    padding: 6px 16px !important;
+    text-transform: none !important;
+    transition: all 200ms ease !important;
+    box-shadow: 0 2px 6px rgba(26, 115, 232, 0.3) !important;
+}
+.erp-lms-shell .btn.green:hover,
+.erp-lms-shell .btn.green.btn-circle:hover {
+    background: linear-gradient(135deg, #4D9BFF, #7DBFFF) !important;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.5) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* (Late Submission) badge — only in submission status cells */
+.erp-lms-shell td .btn.green ~ small.bold,
+.erp-lms-shell td a[id*="hlSubmission"] ~ small.bold,
+.erp-lms-shell td span[style*="color:Red"] {
+    background-color: #e53935 !important;
+    color: #ffffff !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+    margin-top: 4px !important;
+}
+
+/* Text nowrap cells */
+.erp-lms-shell td.text-nowrap {
+    white-space: nowrap !important;
+}
+
+/* font-green-sharp caption override */
+.erp-lms-shell .font-green-sharp {
+    color: #4ade80 !important;
+}
+
+/* ERP font-color class overrides inside tabs — inherit tab color logic */
+.erp-lms-shell .nav-tabs > li > a.font-blue-madison,
+.erp-lms-shell .nav-tabs > li > a.font-green-soft,
+.erp-lms-shell .nav-pills > li > a.font-blue-madison,
+.erp-lms-shell .nav-pills > li > a.font-green-soft {
+    color: inherit !important;
+}
+
+/* Submission status cell badges */
+.erp-lms-shell td .btn.green.btn-circle.btn-xs,
+.erp-lms-shell td a[id*="hlSubmission"] {
+    background-color: #1A73E8 !important;
+    background: linear-gradient(135deg, #1A73E8, #4D9BFF) !important;
+    border-color: #1A73E8 !important;
+    color: #ffffff !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    padding: 5px 14px !important;
+    text-transform: none !important;
+    transition: all 200ms ease !important;
+    box-shadow: 0 2px 6px rgba(26, 115, 232, 0.3) !important;
+}
+.erp-lms-shell td .btn.green.btn-circle.btn-xs:hover,
+.erp-lms-shell td a[id*="hlSubmission"]:hover {
+    background: linear-gradient(135deg, #4D9BFF, #7DBFFF) !important;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.5) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* "Submitted" and "Pending" status labels */
+.erp-lms-shell td span[style*="color:Green"],
+.erp-lms-shell td span[style*="color: Green"] {
+    color: #4ade80 !important;
+}
+.erp-lms-shell td span[style*="color:Red"],
+.erp-lms-shell td span[style*="color: Red"] {
+    color: #ff6b6b !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+/* ── Modal iframe styling (content viewer popup) ── */
+.erp-lms-shell .modal-content {
+    background-color: #242424 !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+}
+
+.erp-lms-shell .modal-header {
+    border-bottom: 1px solid #333 !important;
+    background-color: #1e1e1e !important;
+}
+
+.erp-lms-shell .modal-header .close {
+    color: #ccc !important;
+    opacity: 0.8 !important;
+}
+
+/* =========================================================================
+   LMS Shell — Alert Boxes (No Record Found, Success messages, etc.)
+   ========================================================================= */
+
+.erp-lms-shell .alert {
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 12px 16px !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.erp-lms-shell .alert .fa {
+    margin-right: 8px !important;
+}
+
+/* Danger / Error */
+.erp-lms-shell .alert-danger,
+.erp-lms-shell .alert.alert-danger {
+    background-color: rgba(229, 57, 53, 0.12) !important;
+    border: 1px solid rgba(229, 57, 53, 0.35) !important;
+    color: #ff8a80 !important;
+}
+.erp-lms-shell .alert-danger .fa {
+    color: #e53935 !important;
+}
+
+/* Success */
+.erp-lms-shell .alert-success,
+.erp-lms-shell .alert.alert-success {
+    background-color: rgba(74, 222, 128, 0.10) !important;
+    border: 1px solid rgba(74, 222, 128, 0.30) !important;
+    color: #86efac !important;
+}
+.erp-lms-shell .alert-success .fa {
+    color: #4ade80 !important;
+}
+
+/* Warning */
+.erp-lms-shell .alert-warning,
+.erp-lms-shell .alert.alert-warning {
+    background-color: rgba(251, 191, 36, 0.10) !important;
+    border: 1px solid rgba(251, 191, 36, 0.30) !important;
+    color: #fde68a !important;
+}
+.erp-lms-shell .alert-warning .fa {
+    color: #fbbf24 !important;
+}
+
+/* Info */
+.erp-lms-shell .alert-info,
+.erp-lms-shell .alert.alert-info {
+    background-color: rgba(79, 168, 255, 0.10) !important;
+    border: 1px solid rgba(79, 168, 255, 0.30) !important;
+    color: #93c5fd !important;
+}
+.erp-lms-shell .alert-info .fa {
+    color: #4FA8FF !important;
+}
+
+/* =========================================================================
+   LMS Shell — Introduction Tab & Staff Section
+   ========================================================================= */
+
+/* ── Font Color Class Overrides ── */
+.erp-lms-shell .font-blue-dark,
+.erp-lms-shell h5.font-blue-dark,
+.erp-lms-shell .bold.font-blue-dark {
+    color: #7DBFFF !important;
+}
+
+.erp-lms-shell .font-blue,
+.erp-lms-shell span.font-blue,
+.erp-lms-shell .font-blue.sbold {
+    color: #93c5fd !important;
+}
+
+.erp-lms-shell .font-blue a {
+    color: #93c5fd !important;
+}
+.erp-lms-shell .font-blue a:hover {
+    color: #bdd8ff !important;
+}
+
+.erp-lms-shell .sbold {
+    color: #aaa !important;
+}
+
+/* ── Staff Card Section ── */
+.erp-lms-shell .slimScrollDiv {
+    background-color: transparent !important;
+}
+
+.erp-lms-shell .slimScrollBar {
+    background: #555 !important;
+}
+
+.erp-lms-shell .item-pic.rounded {
+    border-radius: 50% !important;
+    border: 2px solid #333 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.erp-lms-shell h5 {
+    color: #e0e0e0 !important;
+}
+
+.erp-lms-shell h6 {
+    color: #bbb !important;
+}
+
+.erp-lms-shell h6 .fa {
+    color: #888 !important;
+    margin-right: 6px !important;
+}
+
+.erp-lms-shell hr {
+    border-color: #333 !important;
+    margin: 8px 0 !important;
+}
+
+/* ── Label Badges (Yes/No, Elective, etc.) ── */
+.erp-lms-shell .label {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+}
+
+.erp-lms-shell .label-danger {
+    background-color: #c62828 !important;
+    color: #ffffff !important;
+}
+
+.erp-lms-shell .label-success {
+    background-color: #2e7d32 !important;
+    color: #ffffff !important;
+}
+
+.erp-lms-shell .label-warning {
+    background-color: #f57f17 !important;
+    color: #ffffff !important;
+}
+
+.erp-lms-shell .label-info {
+    background-color: #1565c0 !important;
+    color: #ffffff !important;
+}
+
+.erp-lms-shell .label-default {
+    background-color: #424242 !important;
+    color: #ccc !important;
+}
+
+/* ── Download Buttons (yellow / blue-soft variants) ── */
+.erp-lms-shell .btn.yellow,
+.erp-lms-shell .btn.yellow.btn-xs,
+.erp-lms-shell a.btn.yellow {
+    background-color: #b8860b !important;
+    border-color: #b8860b !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+    transition: background-color 200ms ease !important;
+}
+.erp-lms-shell .btn.yellow:hover {
+    background-color: #d4a017 !important;
+}
+
+.erp-lms-shell .btn.blue-soft,
+.erp-lms-shell a.btn.blue-soft {
+    background-color: #1565c0 !important;
+    border-color: #1565c0 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+    transition: background-color 200ms ease !important;
+}
+.erp-lms-shell .btn.blue-soft:hover {
+    background-color: #1e88e5 !important;
+}
+
+/* ── Table Scrollable Wrapper ── */
+.erp-lms-shell .table-scrollable {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    border-radius: 6px !important;
+    border: 1px solid #333 !important;
+}
+
+/* ── Width Helper Overrides ── */
+.erp-lms-shell td.Width-20PCT {
+    width: 20% !important;
+    color: #aaa !important;
+    font-weight: 600 !important;
+}
+
+.erp-lms-shell td.Width-1PCT {
+    width: 5% !important;
+    text-align: center !important;
+}
+
+/* ── Bold text inside table cells ── */
+.erp-lms-shell td.bold,
+.erp-lms-shell td .bold {
+    color: #bbb !important;
+}
+
+/* ── Disabled Links (GNHyperlink-Disabled) ── */
+.erp-lms-shell a.GNHyperlink-Disabled {
+    color: #666 !important;
+    cursor: not-allowed !important;
+    text-decoration: line-through !important;
+    opacity: 0.6 !important;
+}
+
+/* ── Locked Button (fa-lock) ── */
+.erp-lms-shell .btn-locked,
+.erp-lms-shell span.btn-locked {
+    color: #888 !important;
+    font-size: 16px !important;
+    cursor: not-allowed !important;
+    opacity: 0.5 !important;
+}
+
+/* ── Portlet Title Caption (Introduction portlet headers) ── */
+.erp-lms-shell .portlet-title .caption {
+    color: #e0e0e0 !important;
+}
+
+.erp-lms-shell .portlet-title .caption .caption-subject {
+    color: #e0e0e0 !important;
+}
+
+.erp-lms-shell .portlet-title .caption .fa {
+    color: #4FA8FF !important;
+    margin-right: 6px !important;
+}
+
+/* ── Portlet Title Tools (download buttons in header) ── */
+.erp-lms-shell .portlet-title .tools {
+    color: #ccc !important;
+}
+
+/* ── GNModalIFrame Content Links ── */
+.erp-lms-shell a.GNModalIFrame {
+    color: #4FA8FF !important;
+    transition: color 200ms ease !important;
+}
+.erp-lms-shell a.GNModalIFrame:hover {
+    color: #7DBFFF !important;
+    text-decoration: underline !important;
+}
+
+/* ── Text alignment helper overrides ── */
+.erp-lms-shell .text-right {
+    text-align: right !important;
+}
+
+/* ── Portlet Caption inside caption ── */
+.erp-lms-shell .caption.font-green-sharp {
+    color: #4ade80 !important;
+}
+
+/* ── Tab pane padding ── */
+.erp-lms-shell .tab-pane {
+    padding: 16px 0 !important;
+}
+
+/* ── Tabbable-line border fix ── */
+.erp-lms-shell .tabbable-line {
+    border: none !important;
+}
+
+.erp-lms-shell .tabbable-line > .nav-tabs {
+    border-bottom: 2px solid #333 !important;
+}
+
+/* ── Nav Pills ── */
+.erp-lms-shell .nav-pills > li > a {
+    color: #a1a1aa !important;
+    border-radius: 6px !important;
+    transition: background-color 200ms ease, color 200ms ease !important;
+    padding: 10px 16px !important;
+}
+.erp-lms-shell .nav-pills > li > a:hover {
+    background-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+.erp-lms-shell .nav-pills > li.active > a,
+.erp-lms-shell .nav-pills > li.active > a:focus,
+.erp-lms-shell .nav-pills > li.active > a:hover {
+    background-color: #1565c0 !important;
+    color: #ffffff !important;
+}
+.erp-lms-shell .nav-pills > li > a > .fa {
+    margin-right: 6px !important;
+}
+
+/* ── Badge & Tag Backgrounds ── */
+.erp-lms-shell .badge.bg-blue,
+.erp-lms-shell .bg-blue {
+    background-color: #1565c0 !important;
+    color: #fff !important;
+}
+
+/* ── Specific Button Variants ── */
+.erp-lms-shell .btn.blue,
+.erp-lms-shell a.btn.blue {
+    background-color: #1565c0 !important;
+    border-color: #1565c0 !important;
+    color: #ffffff !important;
+}
+.erp-lms-shell .btn.blue:hover,
+.erp-lms-shell a.btn.blue:hover {
+    background-color: #1e88e5 !important;
+}
+
+.erp-lms-shell .btn.red,
+.erp-lms-shell a.btn.red,
+.erp-lms-shell i.btn.red {
+    background-color: #c62828 !important;
+    border-color: #c62828 !important;
+    color: #ffffff !important;
+}
+.erp-lms-shell .btn.red:hover,
+.erp-lms-shell a.btn.red:hover,
+.erp-lms-shell i.btn.red:hover {
+    background-color: #d32f2f !important;
+}
+
+/* ── Content Tab Texts ── */
+.erp-lms-shell .font-blue-madison,
+.erp-lms-shell a.font-blue-madison {
+    color: #93c5fd !important;
+}
+.erp-lms-shell a.font-blue-madison:hover {
+    color: #bdd8ff !important;
+}
+
+.erp-lms-shell .font-green-soft,
+.erp-lms-shell a.font-green-soft {
+    color: #4ade80 !important;
+}
+.erp-lms-shell a.font-green-soft:hover {
+    color: #86efac !important;
+}
