@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize LightRays background
+    if (typeof initLightRays === 'function') {
+        initLightRays('light-rays-bg', {
+            raysColor: '#3b82f6', // Match our vibrant tertiary blue
+            raysSpeed: 1.5,
+            lightSpread: 0.8,
+            rayLength: 1.2,
+            followMouse: true,
+            mouseInfluence: 0.1,
+            noiseAmount: 0.1,
+            distortion: 0.05
+        });
+    }
+
     const toggleInput = document.getElementById('toggleLogin');
     const toggleDarkMode = document.getElementById('toggleDarkMode');
     const toggleDeclutter = document.getElementById('toggleDeclutter');

@@ -1,53 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>ERP Overhaul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPOverhaul</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
-  <div class="container">
-    <h2>ERP Overhaul</h2>
+  <div id="light-rays-bg" class="light-rays-container"></div>
+  <div class="card">
+    <div class="badge">
+      <h1>PPOverhaul</h1>
+    </div>
 
-    <div class="credentials-card">
-      <div class="field-group">
-        <label for="usernameInput" class="field-label">Username</label>
-        <input type="text" id="usernameInput" class="field-input" placeholder="Mobile / Email / Staff Code" autocomplete="off">
+    <form class="form">
+      <div class="input-group">
+        <label for="usernameInput">Username</label>
+        <input type="text" id="usernameInput" placeholder="Enter ID" autocomplete="off" />
       </div>
-      <div class="field-group">
-        <label for="passwordInput" class="field-label">Password</label>
-        <input type="password" id="passwordInput" class="field-input" placeholder="Password" autocomplete="off">
+
+      <div class="input-group">
+        <label for="passwordInput">Password</label>
+        <input type="password" id="passwordInput" placeholder="Enter Password" autocomplete="off" />
       </div>
-      <button id="saveCredentials" class="save-btn" type="button">Save Credentials</button>
+
+      <button type="button" id="saveCredentials" class="btn">Save Credentials</button>
       <div id="saveStatus" class="save-status" aria-live="polite"></div>
+    </form>
+
+    <div class="settings">
+      <div class="setting-item">
+        <span class="setting-label">Auto-Login Enabled</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleLogin">
+          <img class="toggle-off" src="https://lh3.googleusercontent.com/aida/ADBb0ugbL14rGLEVcO484OH4658vydhjVGQGy5tYEywklbcS-w1pFThsaionJGwDKbL5MGwid6oJ1AXE9PNLroVSuC6hbyzy211IdmPQpyfuwBt_xfPfpR-9bw3RhUN3eLcwyMKeIh4fxXlwXPbwBfHpZNMCy_v47eIO955jLQNR7LPs_KsBe2mZSUEQmmECBibEnRIgTA9Bx1O-3XABYmuMFiOY5nZgfuxl4TGBEwxiGVxForYbGIuWP7M_BIc" alt="Off">
+          <img class="toggle-on" src="https://lh3.googleusercontent.com/aida/ADBb0uiFfCHcSTfPa9EwNg7XqeP2-V4eFAtFq1mkTLajZNbE5ryPnsvA3nnOTDjKCubsqv39gOLYUP8nikkqwy9vkhESu5zestWGxFtMioL3zWpveB-Y9GFmjmObqjOr2xISl4hef4I8tcCfAwvPGHJ3onnWCh4eV2ht4S7a6tGhi64xbHOA_wgKrAVKIDF1HhCAUoi77VPvjwrGN6bLsYo6OLK5m8TxiAtbH_h07sG_twqFMUYD1BqyrkTNKyo" alt="On">
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <span class="setting-label">Dark Mode Enabled</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleDarkMode">
+          <img class="toggle-off" src="https://lh3.googleusercontent.com/aida/ADBb0ugbL14rGLEVcO484OH4658vydhjVGQGy5tYEywklbcS-w1pFThsaionJGwDKbL5MGwid6oJ1AXE9PNLroVSuC6hbyzy211IdmPQpyfuwBt_xfPfpR-9bw3RhUN3eLcwyMKeIh4fxXlwXPbwBfHpZNMCy_v47eIO955jLQNR7LPs_KsBe2mZSUEQmmECBibEnRIgTA9Bx1O-3XABYmuMFiOY5nZgfuxl4TGBEwxiGVxForYbGIuWP7M_BIc" alt="Off">
+          <img class="toggle-on" src="https://lh3.googleusercontent.com/aida/ADBb0uiFfCHcSTfPa9EwNg7XqeP2-V4eFAtFq1mkTLajZNbE5ryPnsvA3nnOTDjKCubsqv39gOLYUP8nikkqwy9vkhESu5zestWGxFtMioL3zWpveB-Y9GFmjmObqjOr2xISl4hef4I8tcCfAwvPGHJ3onnWCh4eV2ht4S7a6tGhi64xbHOA_wgKrAVKIDF1HhCAUoi77VPvjwrGN6bLsYo6OLK5m8TxiAtbH_h07sG_twqFMUYD1BqyrkTNKyo" alt="On">
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <span class="setting-label">Declutter Dashboard</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleDeclutter">
+          <img class="toggle-off" src="https://lh3.googleusercontent.com/aida/ADBb0ugbL14rGLEVcO484OH4658vydhjVGQGy5tYEywklbcS-w1pFThsaionJGwDKbL5MGwid6oJ1AXE9PNLroVSuC6hbyzy211IdmPQpyfuwBt_xfPfpR-9bw3RhUN3eLcwyMKeIh4fxXlwXPbwBfHpZNMCy_v47eIO955jLQNR7LPs_KsBe2mZSUEQmmECBibEnRIgTA9Bx1O-3XABYmuMFiOY5nZgfuxl4TGBEwxiGVxForYbGIuWP7M_BIc" alt="Off">
+          <img class="toggle-on" src="https://lh3.googleusercontent.com/aida/ADBb0uiFfCHcSTfPa9EwNg7XqeP2-V4eFAtFq1mkTLajZNbE5ryPnsvA3nnOTDjKCubsqv39gOLYUP8nikkqwy9vkhESu5zestWGxFtMioL3zWpveB-Y9GFmjmObqjOr2xISl4hef4I8tcCfAwvPGHJ3onnWCh4eV2ht4S7a6tGhi64xbHOA_wgKrAVKIDF1HhCAUoi77VPvjwrGN6bLsYo6OLK5m8TxiAtbH_h07sG_twqFMUYD1BqyrkTNKyo" alt="On">
+        </label>
+      </div>
     </div>
 
-    <div class="toggle-container">
-      <span class="label">Auto-Login Enabled</span>
-      <label class="switch">
-        <input type="checkbox" id="toggleLogin">
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <div class="toggle-container">
-      <span class="label">Dark Mode Enabled</span>
-      <label class="switch">
-        <input type="checkbox" id="toggleDarkMode">
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <div class="toggle-container">
-      <span class="label">Declutter Dashboard</span>
-      <label class="switch">
-        <input type="checkbox" id="toggleDeclutter">
-        <span class="slider round"></span>
-      </label>
-    </div>
-
-    <div class="popup-branding">
+    <div class="footer">
       <a href="https://jayvarma.site" target="_blank" rel="noopener noreferrer">@jayyvarmaa</a>
     </div>
   </div>
+  <script src="lightrays.js"></script>
   <script src="popup.js"></script>
 </body>
+
 </html>
