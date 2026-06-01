@@ -1,20 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "ERP Overhaul",
-  "version": "1.0",
-  "description": "Auto-login for PPSU ERP System as Student",
+  "name": "PPOverhaul",
+  "version": "2.0",
+  "description": "Auto-login for PPSU ERP System as Student, Decluter Things, enabled Dark Mode.",
   "permissions": [
     "storage"
   ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
   "action": {
+    "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "ERP Overhaul Settings"
+    "default_title": "PPOverhaul Settings"
   },
   "content_scripts": [
     {
-      "matches": ["*://erp.ppsu.ac.in/*"],
-      "css": ["dashboard.css"],
-      "js": ["content.js"],
+      "matches": [
+        "*://erp.ppsu.ac.in/*"
+      ],
+      "css": [
+        "dashboard.css"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start"
     }
   ]
